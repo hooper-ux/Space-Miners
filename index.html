@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click the Target!</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Space Miners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="game-container">
-        <h1>Click the Target!</h1>
-        <div class="score">Score: <span id="score">0</span></div>
-        <div class="timer">Time: <span id="time">30</span>s</div>
-        <div class="target" id="target"></div>
-    </div>
-    <script src="script.js"></script>
+  <header class="app-header">
+    <h1>Space Miners</h1>
+    <p>First to 50 diamonds and back to Earth wins.</p>
+  </header>
+
+  <main class="app-main">
+    <section class="setup-panel">
+      <h2>Game Setup</h2>
+      <label for="player-count">Number of players (2–5):</label>
+      <input id="player-count" type="number" min="2" max="5" value="3" />
+      <button id="start-game-btn">Start Game</button>
+    </section>
+
+    <section class="board-panel">
+      <h2>Board</h2>
+      <div id="board" class="board"></div>
+    </section>
+
+    <section class="sidebar">
+      <div class="current-player-panel">
+        <h2>Current Player</h2>
+        <div id="current-player-name"></div>
+        <div class="stats">
+          <div><strong>Position:</strong> <span id="current-player-position"></span></div>
+          <div><strong>Diamonds:</strong> <span id="current-player-diamonds"></span></div>
+          <div><strong>Debt:</strong> <span id="current-player-debt"></span></div>
+          <div><strong>Ship Level:</strong> <span id="current-player-level"></span></div>
+          <div><strong>Power-Ups:</strong> <span id="current-player-powerups"></span></div>
+        </div>
+      </div>
+
+      <div class="controls-panel">
+        <h2>Turn Controls</h2>
+        <button id="roll-move-btn" disabled>Roll Movement Die</button>
+        <button id="roll-mine-btn" disabled>Roll Mining Die</button>
+        <button id="end-turn-btn" disabled>End Turn</button>
+      </div>
+
+      <div class="shop-panel">
+        <h2>Earth Actions</h2>
+        <button id="upgrade-ship-btn" disabled>Upgrade Ship</button>
+        <div class="powerup-buttons">
+          <button data-powerup="forceField" disabled>Buy Force Field (10)</button>
+          <button data-powerup="laserCannon" disabled>Buy Laser Cannon (5)</button>
+          <button data-powerup="sensors" disabled>Buy Long Range Sensors (5)</button>
+          <button data-powerup="thrusters" disabled>Buy Emergency Thrusters (5)</button>
+        </div>
+      </div>
+
+      <div class="log-panel">
+        <h2>Game Log</h2>
+        <div id="log" class="log"></div>
+      </div>
+
+      <div class="players-panel">
+        <h2>Players</h2>
+        <div id="players-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="src/game.js"></script>
 </body>
-</html>
